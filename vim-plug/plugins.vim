@@ -34,6 +34,8 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'airblade/vim-rooter'
         " Prettier
         Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+        " Test
+        Plug 'vim-test/vim-test'
 
         " Themes
         Plug 'joshdick/onedark.vim'
