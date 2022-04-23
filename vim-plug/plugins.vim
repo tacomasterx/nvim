@@ -36,6 +36,8 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
         " Test
         Plug 'vim-test/vim-test'
+        " Rails navigation
+        Plug 'tpope/vim-rails'
 
         " Themes
         Plug 'joshdick/onedark.vim'
