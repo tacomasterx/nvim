@@ -6,6 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
         " Easy motion for VSCode
         Plug 'asvetliakov/vim-easymotion'
     else
+        " Easy motion
+        Plug 'easymotion/vim-easymotion' 
         " Syntax support
         Plug 'sheerun/vim-polyglot'
         " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -21,7 +23,8 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         " Indent guides
-        " Plug 'Yggdroot/indentLine' 
+        Plug 'Yggdroot/indentLine' 
+
         " Git integration
         Plug 'mhinz/vim-signify'
         " Autoclose tags
@@ -38,7 +41,12 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'vim-test/vim-test'
         " Rails navigation
         Plug 'tpope/vim-rails'
-
+        " Golang
+        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " Show colors
+        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+        " Emmet
+        Plug 'mattn/emmet-vim'
         " Themes
         Plug 'joshdick/onedark.vim'
         Plug 'kaicataldo/material.vim'
@@ -47,5 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'ayu-theme/ayu-vim'
         Plug 'dracula/vim', { 'as': 'dracula' }
         Plug 'phanviet/vim-monokai-pro'
+
     endif
 call plug#end()
+

@@ -26,6 +26,7 @@ set clipboard=unnamedplus
 set background=dark
 set sw=2
 set autochdir
+set termguicolors
 syntax enable
 filetype on
 filetype indent on

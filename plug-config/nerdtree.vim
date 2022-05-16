@@ -1,2 +1,2 @@
 " NERDTree
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>nt :NERDTreeToggle<CR>

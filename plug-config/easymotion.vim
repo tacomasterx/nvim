@@ -15,9 +15,9 @@
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap em <Plug>(easymotion-s2)
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
+nmap <Leader>s <Plug>(easymotion-s2)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 " nmap s <Plug>(easymotion-overwin-f2)
 " nmap S <Plug>(easymotion-overwin-t)
 

@@ -40,9 +40,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Add ;
+nnoremap ; A;<Esc>
+
 " Plugins controls
-nmap E <Plug>(easymotion-s2)
-nnoremap <Leader>nt :NERDTree<CR>
+
 
 if !exists('g:vscode')
     " TAB in general mode will move to next buffer
