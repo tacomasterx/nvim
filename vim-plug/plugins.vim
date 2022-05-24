@@ -47,6 +47,9 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         " Emmet
         Plug 'mattn/emmet-vim'
+        " Javascript and JSX
+        Plug 'yuezk/vim-js'
+        Plug 'maxmellon/vim-jsx-pretty'
         " Themes
         Plug 'joshdick/onedark.vim'
         Plug 'kaicataldo/material.vim'
