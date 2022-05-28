@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
     " Comment code
     Plug 'tpope/vim-commentary'
+    " Surround text
+    Plug 'tpope/vim-surround'
 
     if exists('g:vscode')
         " Easy motion for VSCode
@@ -27,6 +29,8 @@ call plug#begin('~/.config/nvim/plugged')
 
         " Git integration
         Plug 'mhinz/vim-signify'
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-rhubarb'
         " Autoclose tags
         Plug 'alvan/vim-closetag'
         " Ranger
