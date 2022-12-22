@@ -18,6 +18,8 @@ nnoremap <Leader>W :w!<CR>
 " Quit
 nmap <Leader>Q :q!<CR>
 nmap <Leader>q :q<CR>
+" Cargo run
+nmap <Leader>cr :!cargo<Space>run<CR>
 " Alternate way to quit and save
 nnoremap <C-q> :wq!<CR>
 
@@ -41,7 +43,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Add ;
-nnoremap ; A;<Esc>
+nnoremap <Leader>; A;<Esc>
+" Add :
+nnoremap <Leader>: A:<Esc>
+" Add ,
+nnoremap <Leader>, A,<Esc>
 
 " Plugins controls
 
