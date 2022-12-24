@@ -1,24 +1,24 @@
 " General
-source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/general/keys.vim
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/AppData/local/nvim/general/settings.vim
+source $HOME/AppData/local/nvim/general/keys.vim
+source $HOME/AppData/local/nvim/vim-plug/plugins.vim
 
 if exists('g:vscode')
-    source $HOME/.config/nvim/vscode/settings.vim
+    source $HOME/AppData/local/nvim/vscode/settings.vim
 else
     " Plugins
-    source $HOME/.config/nvim/plug-config/coc.vim
-    source $HOME/.config/nvim/plug-config/nerdtree.vim
-    source $HOME/.config/nvim/plug-config/vim-closetag.vim
-    source $HOME/.config/nvim/plug-config/signify.vim
-    source $HOME/.config/nvim/plug-config/vim-test.vim
-    source $HOME/.config/nvim/plug-config/vim-commentary.vim
-    source $HOME/.config/nvim/plug-config/fzf.vim
-    source $HOME/.config/nvim/plug-config/easymotion.vim
-    source $HOME/.config/nvim/plug-config/vim-hexokinase.vim
-    " luafile $HOME/.config/nvim/plug-config/nvim-treeseter.lua
+    source $HOME/AppData/local/nvim/plug-config/coc.vim
+    source $HOME/AppData/local/nvim/plug-config/nerdtree.vim
+    source $HOME/AppData/local/nvim/plug-config/vim-closetag.vim
+    source $HOME/AppData/local/nvim/plug-config/signify.vim
+    source $HOME/AppData/local/nvim/plug-config/vim-test.vim
+    source $HOME/AppData/local/nvim/plug-config/vim-commentary.vim
+    source $HOME/AppData/local/nvim/plug-config/fzf.vim
+    source $HOME/AppData/local/nvim/plug-config/easymotion.vim
+    " source $HOME/AppData/local/nvim/plug-config/vim-hexokinase.vim
+    " luafile $HOME/AppData/local/nvim/plugAppData/local/nvim-treeseter.lua
     " Themes
-    source $HOME/.config/nvim/general/colors.vim
-    source $HOME/.config/nvim/themes/airline.vim
-    source $HOME/.config/nvim/themes/dracula.vim
+    source $HOME/AppData/local/nvim/general/colors.vim
+    source $HOME/AppData/local/nvim/themes/airline.vim
+    source $HOME/AppData/local/nvim/themes/dracula.vim
 endif

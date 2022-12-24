@@ -48,7 +48,7 @@ call plug#begin('~/.config/nvim/plugged')
         " Golang
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
         " Show colors
-        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+        " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         " Emmet
         Plug 'mattn/emmet-vim'
         " Javascript and JSX
