@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'easymotion/vim-easymotion' 
         " Syntax support
         Plug 'sheerun/vim-polyglot'
+        Plug 'rust-lang/rust.vim'
         " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         " Autopairs
         Plug 'jiangmiao/auto-pairs'
@@ -34,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
         " Autoclose tags
         Plug 'alvan/vim-closetag'
         " Ranger
-        Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+        " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
         " Fzf
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
@@ -46,7 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
         " Rails navigation
         Plug 'tpope/vim-rails'
         " Golang
-        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
         " Show colors
         " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         " Emmet
@@ -55,13 +56,13 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'yuezk/vim-js'
         Plug 'maxmellon/vim-jsx-pretty'
         " Themes
-        Plug 'joshdick/onedark.vim'
-        Plug 'kaicataldo/material.vim'
-        Plug 'tomasiser/vim-code-dark'
-        Plug 'crusoexia/vim-monokai'
-        Plug 'ayu-theme/ayu-vim'
+        " Plug 'joshdick/onedark.vim'
+        " Plug 'kaicataldo/material.vim'
+        " Plug 'tomasiser/vim-code-dark'
+        " Plug 'crusoexia/vim-monokai'
+        " Plug 'ayu-theme/ayu-vim'
         Plug 'dracula/vim', { 'as': 'dracula' }
-        Plug 'phanviet/vim-monokai-pro'
+        " Plug 'phanviet/vim-monokai-pro'
 
     endif
 call plug#end()
