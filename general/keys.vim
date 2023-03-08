@@ -51,6 +51,15 @@ nnoremap <Leader>, A,<Esc>
 
 " Plugins controls
 
+" Nvim Terminal Controls
+:tnoremap <Esc> <C-\><C-n>
+:tnoremap <C-h> <C-\><C-N><C-w>h
+:tnoremap <C-j> <C-\><C-N><C-w>j
+:tnoremap <C-k> <C-\><C-N><C-w>k
+:tnoremap <C-l> <C-\><C-N><C-w>l
+
+nnoremap <Leader>ps :call SetPsTerminal()<CR>
+nnoremap <C-w>t <C-w>s:terminal<CR>
 
 if !exists('g:vscode')
     " TAB in general mode will move to next buffer

@@ -18,6 +18,7 @@ else
     " source $HOME/AppData/local/nvim/plug-config/vim-hexokinase.vim
     " luafile $HOME/AppData/local/nvim/plugAppData/local/nvim-treeseter.lua
     " Themes
+    source $HOME/AppData/local/nvim/plug-config/markdown-preview.vim
     source $HOME/AppData/local/nvim/general/colors.vim
     source $HOME/AppData/local/nvim/themes/airline.vim
     source $HOME/AppData/local/nvim/themes/dracula.vim

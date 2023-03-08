@@ -63,6 +63,9 @@ call plug#begin('~/.config/nvim/plugged')
         " Plug 'ayu-theme/ayu-vim'
         Plug 'dracula/vim', { 'as': 'dracula' }
         " Plug 'phanviet/vim-monokai-pro'
+        " Markdown preview
+        " If you have nodejs and yarn
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
     endif
 call plug#end()
