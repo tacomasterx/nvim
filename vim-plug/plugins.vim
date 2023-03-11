@@ -44,26 +44,26 @@ call plug#begin('~/.config/nvim/plugged')
         " Test
         Plug 'vim-test/vim-test'
         " Rails navigation
-        Plug 'tpope/vim-rails'
+        " Plug 'tpope/vim-rails'
         " Golang
-        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
         " Show colors
-        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+        " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         " Emmet
         Plug 'mattn/emmet-vim'
         " Javascript and JSX
         Plug 'yuezk/vim-js'
         Plug 'maxmellon/vim-jsx-pretty'
         " Themes
-        Plug 'joshdick/onedark.vim'
-        Plug 'kaicataldo/material.vim'
-        Plug 'tomasiser/vim-code-dark'
-        Plug 'crusoexia/vim-monokai'
-        Plug 'ayu-theme/ayu-vim'
+        " Plug 'joshdick/onedark.vim'
+        " Plug 'kaicataldo/material.vim'
+        " Plug 'tomasiser/vim-code-dark'
+        " Plug 'crusoexia/vim-monokai'
+        " Plug 'ayu-theme/ayu-vim'
         Plug 'dracula/vim', { 'as': 'dracula' }
-        Plug 'phanviet/vim-monokai-pro'
+        " Plug 'phanviet/vim-monokai-pro'
         " If you have nodejs and yarn
-        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+        " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     endif
 call plug#end()
 

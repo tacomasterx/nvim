@@ -16,7 +16,7 @@ else
     source $HOME/.config/nvim/plug-config/fzf.vim
     source $HOME/.config/nvim/plug-config/markdown.vim
     source $HOME/.config/nvim/plug-config/easymotion.vim
-    source $HOME/.config/nvim/plug-config/vim-hexokinase.vim
+    " source $HOME/.config/nvim/plug-config/vim-hexokinase.vim
     " luafile $HOME/.config/nvim/plug-config/nvim-treeseter.lua
     " Themes
     source $HOME/.config/nvim/general/colors.vim
