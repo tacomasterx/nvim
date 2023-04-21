@@ -52,6 +52,8 @@ return {
 				"python",
 				"query",
 				"regex",
+				"ruby",
+				"rust",
 				"tsx",
 				"typescript",
 				"vim",

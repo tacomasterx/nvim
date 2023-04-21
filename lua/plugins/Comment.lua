@@ -6,7 +6,6 @@ return {
 		end,
 		keys = {
 			{
-				"n",
 				"<leader>/",
 				"gcc",
 				desc = "Comment line toggle",
