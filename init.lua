@@ -1,7 +1,4 @@
 require("config.option")
-require("config.remap")
-require("config.plugin.init")
--- require("nvim-treesitterlocal lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -17,3 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+require("nvim-treesitter.install").compilers = { "clang" }
+require("config.plugin.init")
+require("config.colors")
+require("config.remap")
