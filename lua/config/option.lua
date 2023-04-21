@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 local opt = vim.opt
 
 opt.relativenumber = true
@@ -12,7 +14,7 @@ opt.shiftwidth = 4
 opt.showtabline = 4
 opt.formatoptions = "jqlt"
 opt.hidden = true
-opt.nowrap = true
+-- opt.nowrap = true
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.ruler = true
