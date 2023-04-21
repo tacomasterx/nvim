@@ -51,3 +51,26 @@ require("lualine").setup({
 
 -- Comment.nvim
 require("Comment").setup()
+
+-- Barbar
+-- Mason
+require('mason').setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "rust_analyzer", "solargraph", "pyright", "vimls" },
+})
+--
+-- Setup language servers.
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {}
+lspconfig.solargraph.setup {}
+lspconfig.vimls.setup {}
+lspconfig.lua_ls.setup {}
+lspconfig.rust_analyzer.setup {}
