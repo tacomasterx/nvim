@@ -20,6 +20,7 @@ kmap.set("n", "<S-TAB>", "<cmd>bprevious<CR>", { desc = "Move to previous tab" }
 kmap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "Forced exit" })
 kmap.set("n", "<Leader>qf", "<cmd>q!<CR>", { desc = "Forced exit" })
 kmap.set("n", "<Leader>qq", "<cmd>q<CR>", { desc = "Exit neovim" })
+kmap.set("n", "<Leader>qw", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- better indenting
 kmap.set("v", "<", "<gv")
@@ -29,6 +30,7 @@ kmap.set("v", ">", ">gv")
 kmap.set("n", "<Leader>W", "<cmd>w!<CR>", { desc = "Forced save" })
 kmap.set("n", "<Leader>wf", "<cmd>w!<CR>", { desc = "Forced save" })
 kmap.set("n", "<Leader>ww", "<cmd>w<CR>", { desc = "Save file" })
+kmap.set("n", "<Leader>wq", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- Add , : or ; at the end of line
 kmap.set("n", "<Leader>;", "A;<Esc>", { desc = "Add ; at the end of line" })
@@ -49,15 +51,16 @@ kmap.set("n", "<leader>l", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+kmap.set('n', '<leader>ff', builtin.find_files, {})
+kmap.set('n', '<leader>fg', builtin.live_grep, {})
+kmap.set('n', '<leader>fb', builtin.buffers, {})
+kmap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- NvimTree
-vim.keymap.set('n', "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree"} )
+kmap.set('n', "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree"} )
 
 -- LSP
+--
 ---- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -88,3 +91,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+-- Hop
+kmap.set("n", "<leader>hl", "<cmd>HopLineStart<CR>", { desc = "Hop to chosen line" })
+kmap.set("n", "<leader>hL", "<cmd>HopLineStartMW<CR>", { desc = "Hop to chosen line across buffers" })
+kmap.set("n", "<leader>hw", "<cmd>HopWord<CR>", { desc = "Hop to chosen word" })
+kmap.set("n", "<leader>hW", "<cmd>HopWordMW<CR>", { desc = "Hop to chosen word across buffers" })
+kmap.set("n", "<leader>hc", "<cmd>HopChar2<CR>", { desc = "Hop to chosen character" })
+kmap.set("n", "<leader>hC", "<cmd>HopChar2MW<CR>", { desc = "Hop to chosen character across buffers" })
+kmap.set("n", "<leader>hh", "<cmd>HopChar1CurrentLine<CR>", { desc = "Hop to chosen character in current line" })

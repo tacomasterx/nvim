@@ -18,7 +18,7 @@ opt.hidden = true
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.ruler = true
-opt.mouse = a
+opt.mouse = "a"
 opt.cursorline = true
 opt.splitbelow = true
 opt.splitright = true
@@ -27,6 +27,8 @@ opt.background = "dark"
 opt.sw = 2
 opt.autochdir = true
 opt.termguicolors = true
+opt.scrolloff = 4 -- Lines of context
+opt.sidescrolloff = 8 -- Columns of context
 -- Enable syntax highlighting
 vim.cmd("syntax enable")
 
