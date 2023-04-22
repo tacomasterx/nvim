@@ -1,6 +1,6 @@
 ***Idioma***
-- [:usa: English](./README.es.md)
 - :spain: Español
+- [:usa: English](./README.md)
 
 Este es mi intento de crear mi propia configuración de neovim usando lua en lugar de vimscript (y no solo clonando la de alguien más). Al inicio, pensé que podría apañarmela con solo instalar los mismos plugins a los que estaba acostumbrado, pero esa no sería una propia "conversión a lua" así que empecé a alternar plugins.
 Comezé trabajando en mi ordenador Windows, a modo de poder hacer que mi configuración funcione a la primera y evitar los problemas que me enfrenté la vez pasada (comencé usando neovim en Linux lite, posteriormente en Arch), la mayoría de mi configuración no funcionó cuando la intenté en Windows, así que tuve que crear ramas diferentes y removí/intercambié algunas cosas, pero la diferencia era muy notable cada que cambiaba de plataforma, estoy haciendo lo posible para evitar eso.
