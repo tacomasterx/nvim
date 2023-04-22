@@ -75,6 +75,7 @@ lspconfig.vimls.setup {}
 lspconfig.lua_ls.setup {}
 lspconfig.rust_analyzer.setup {}
 
+-- LspZero
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)

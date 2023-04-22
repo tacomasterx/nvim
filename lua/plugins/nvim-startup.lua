@@ -56,6 +56,7 @@ return {
               content = {
                   "        Select an option and press CR(Enter).        ",
                   "      Or press the key combination at the right.     ",
+                  "                 leader = Space bar.                 ",
                   "             If you need help, press ?               ",
               },
               highlight = "Number",
