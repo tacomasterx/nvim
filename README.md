@@ -51,9 +51,9 @@ Hopefully it works without major tweaks.
   * Press **Space bar** then **l**
   * Or use the command `:Lazy`
 4. For syntax highlight and lsp support:
-  1. Use the command `:TSInstall language_server_name` check the available list [here](https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers)
-  2. Use the command `:Mason` and wait for it to finish
-  3. Open the file `nvim/lua/config/plugin/init.lua`
-  4. Search for `Setup language servers`
-  5. Add the languaje server setup (`lspconfig.language_server_name.setup {}`)
-  6. Restart neovim, just in case
+    1. Use the command `:TSInstall language_server_name` check the available list [here](https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers)
+    2. Use the command `:Mason` and wait for it to finish
+    3. Open the file `nvim/lua/config/plugin/init.lua`
+    4. Search for `Setup language servers`
+    5. Add the languaje server setup (`lspconfig.language_server_name.setup {}`)
+    6. Restart neovim, just in case

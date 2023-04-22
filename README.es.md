@@ -53,11 +53,10 @@ Ojalá funcione sin requerir mayores cambios.
   * Selecciona Lazy pluggin install en el dashboard
   * Presiona las teclas **Espacio** luego **l**
   * O utiliza el comando `:Lazy`
-4. For syntax highlight and lsp support:
 4. Para resaltar sintaxis y soporte de lsp:
-  1. Usa el comando `:TSInstall language_server_name` revisa la lista de disponbles [aquí](https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers)
-  2. Usa el comando `:Mason` y espera a que termine
-  3. Abre el archivo `nvim/lua/config/plugin/init.lua`
-  4. Busca `Setup language servers`
-  5. Añade el "setup" del "language server" (`lspconfig.nombre_del_language_server.setup {}`)
-  6. Reinicia neovim, por si acaso
+    1. Usa el comando `:TSInstall language_server_name` revisa la lista de disponbles [aquí](https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers)
+    2. Usa el comando `:Mason` y espera a que termine
+    3. Abre el archivo `nvim/lua/config/plugin/init.lua`
+    4. Busca `Setup language servers`
+    5. Añade el "setup" del "language server" (`lspconfig.nombre_del_language_server.setup {}`)
+    6. Reinicia neovim, por si acaso
