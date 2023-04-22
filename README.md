@@ -1,6 +1,6 @@
 ***Language***
-- [:spain: Español](./README.es.md)
-- :usa: English
+- [:es: Español](./README.es.md)
+- :us: English
 
 This is my attempt at creating my own neovim configuration using lua instead of vimscript (and not just cloning someone else's). At first, I thought I could get away with just installing the same plugins I was used to, but that was not a proper "lua conversion" so I started switching pluggins.
 I started working on my Windows machine, so I could make my configuration work on it first and avoid the problems I faced last time (I started using neovim on a Linux lite machine, then moved to Arch), most of my configuration did not work when I tried at Windows, so I created diferent branches and removed/switched some stuff, but the difference was really obvious every time I used sitched platforms, I'm trying to avoid that as much as possible now.
