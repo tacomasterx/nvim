@@ -74,6 +74,7 @@ lspconfig.solargraph.setup {}
 lspconfig.vimls.setup {}
 lspconfig.lua_ls.setup {}
 lspconfig.rust_analyzer.setup {}
+lspconfig.bashls.setup {}
 
 -- LspZero
 local lsp = require('lsp-zero').preset({})
