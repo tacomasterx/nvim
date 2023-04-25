@@ -38,8 +38,8 @@ opt.background = "dark"
 opt.mouse = "a"
 opt.clipboard = "" --"unnamed" --"unnamedplus"
 opt.autochdir = false
-opt.undodir = os.getenv("LOCALAPPDATA") .. "/nvim-data/undodir" -- Use this for Windows (unless you use git bash)
--- opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
+-- opt.undodir = os.getenv("LOCALAPPDATA") .. "/nvim-data/undodir" -- Use this for Windows (unless you use git bash)
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
 opt.undofile = true
 
 -- Scroll options
