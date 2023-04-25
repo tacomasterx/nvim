@@ -7,6 +7,12 @@ require("nvim-tree").setup({
 	},
 })
 
+-- Tokyonight
+require("tokyonight").setup({
+      transparent = true, -- Enable this to disable setting the background color
+      style = "moon",
+})
+
 -- Lualine
 require("lualine").setup({
 	options = {
