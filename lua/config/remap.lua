@@ -77,7 +77,10 @@ kmap.set("n", "<leader>tn", "<cmd>FloatermNext<CR>", { desc = "Switch to next fl
 kmap.set("n", "<leader>tp", "<cmd>FloatermPrev<CR>", { desc = "Switch to previous floating terminal" })
 
 -- lazy
-kmap.set("n", "<leader>l", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>ll", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+
+-- Mason
+kmap.set("n", "<leader>lm", "<cmd>:Mason<cr>", { desc = "Lazy" })
 
 -- telescope
 local builtin = require('telescope.builtin')

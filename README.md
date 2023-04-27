@@ -14,25 +14,21 @@ I started working on my Windows machine, so I could make my configuration work o
   * git version **2.33.0.windows.2**
   * Most installed pluggins require at least **2.19.0**
 * Any [Nerd Font](https://www.nerdfonts.com/) __(optional)__
-* Make sure you have the following dependecies installed, I used chocolatey for Windows, pacman for Linux:
+* Make sure you have the following dependecies installed, I used [chocolatey](https://chocolatey.org/) for Windows, pacman for Linux:
   * ripgrep
   * sed
-* TreeSitter and Mason pluggins are configured to "ensure install" the following:
-  * Rust (my cargo version is **1.66.0**)
-  * Ruby (I use **2.7.1**, **3.0.4** and **3.2.1**) but regardless of version just `gem install solargraph`
-  * Python, just `pip install pyright`
-
+    
 ### For Windows
 * Install [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
   1. Only the **C/C++** compiler is needed
   2. Here you can find an [spanish step by step guide](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
   3. Add MingW\bin to path
-
-In order to avoid an annoying Treesitter issue, I had to install LLVM for clang compiler. I used chocolatey package manager for it. There is a line in `.\init.lua` with a comment about this problem, if you are going to use an alternative or none at all, just delete that line.
+  4. In order to avoid an annoying Treesitter issue, I had to install LLVM for clang compiler. I used chocolatey package manager for it. There is a line in `.\init.lua` with a comment about this problem, if you are going to use an alternative or none at all, just delete that line. Again I used chocolatey.
 
 ### For Linux
 WIP...
 Hopefully it works without major tweaks.
+Well, it just works... Just check `./lua/config/option.lua`.
 
 ## Instructions
 ### Windows: (For a better experience use the Windows Terminal and Power Shell)
