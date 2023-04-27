@@ -14,14 +14,9 @@ Comezé trabajando en mi ordenador Windows, a modo de poder hacer que mi configu
   * git version **2.33.0.windows.2**
   * La mayoría de los plugins requieren al menos la versión **2.19.0**
 * Cualquier [Nerd Font](https://www.nerdfonts.com/) __(opcional)__
-* Asegúrate de tener las siguientes dependencias instaladas, yo usé chocolatey para Windows y pacman para Linux:
+* Asegúrate de tener las siguientes dependencias instaladas, yo usé [chocolatey](https://chocolatey.org/) para Windows y pacman para Linux:
   * ripgrep
   * sed
-* TreeSitter and Mason pluggins are configured to "ensure install" the following:
-* Los plugins TreeSitter y Mason están configurados para asegurar que lo siguiente esté instalado:
-  * Rust (mi versión de cargo es **1.66.0**)
-  * Ruby (Uso **2.7.1**, **3.0.4** and **3.2.1**) pero independientemente de la versión, solo ejecuta `gem install solargraph`
-  * Python, solo ejecuta `pip install pyright`
 
 ### Para Windows
 * Instala [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
@@ -35,7 +30,7 @@ Para evitar un problema molesto en Treesitter, tuve que instalar LLVM por el com
 ### Para Linux
 WIP...
 Ojalá funcione sin requerir mayores cambios.
-
+Bueno, simplemente funciona... Solo revisa `./lua/config/option.lua`.
 
 ## Instrucciones
 ### Windows: (Para una mejor experiencia usa la Terminal de Windows y power shell)
