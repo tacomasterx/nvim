@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-require("nvim-treesitter.install").compilers = { "clang" } -- Required to a avoid a Windows Treesitter issue
+-- require("nvim-treesitter.install").compilers = { "clang" } -- Required to a avoid a Windows Treesitter issue
 require("config.plugin.init")
 require("config.colors")
 require("config.remap")

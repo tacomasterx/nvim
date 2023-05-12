@@ -82,6 +82,9 @@ kmap.set("n", "<leader>ll", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 -- Mason
 kmap.set("n", "<leader>lm", "<cmd>:Mason<cr>", { desc = "Lazy" })
 
+-- Colorizer
+kmap.set('n', '<leader>ct', "<cmd>ColorizerToggle<cr>", { desc = "Toggle colorizer" })
+
 -- telescope
 local builtin = require('telescope.builtin')
 kmap.set('n', '<leader>ff', builtin.find_files, { desc = "Fuzzy find files" })
@@ -124,6 +127,24 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, { desc = "Format file" }, opts)
     end,
 })
+
+-- Nvim Dap
+kmap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
+kmap.set("n", "<leader>ds", "<cmd>lua require'dap'.continue()<CR>", { desc = "Launch, stop or resume debug session" })
+kmap.set("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Launch, stop or resume debug session" })
+kmap.set("n", "<leader>dp", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step through code: previous" })
+kmap.set("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step through code: previous" })
+kmap.set("n", "<leader>dn", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step through code: next" })
+kmap.set("n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step through code: next" })
+kmap.set("n", "<leader>dx", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Exit debugging session" })
+kmap.set("n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Exit debugging session" })
+
+-- Vim Test
+kmap.set("n", "<leader>tsn", "<cmd>TestNearest<CR>", { desc = "Test nearest to cursor" })
+kmap.set("n", "<leader>tsf", "<cmd>TestFile<CR>", { desc = "All tests from current file" })
+kmap.set("n", "<leader>tss", "<cmd>TestSuite<CR>", { desc = "Performs all test from current project" })
+kmap.set("n", "<leader>tsl", "<cmd>TestLast<CR>", { desc = "Runs the last test" })
+kmap.set("n", "<leader>tsv", "<cmd>TestVisit<CR>", { desc = "Visits the test file from which you last run your tests" })
 
 -- Nvim Comment
 kmap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle single line comment" })
