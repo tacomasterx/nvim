@@ -73,19 +73,59 @@ require('mason').setup({
         }
     }
 })
+
+-- LSP Config
+local cmp = require('cmp')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+cmp.setup({
+    snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    }, {
+        { name = 'buffer' },
+    }),
+})
+
 require("mason-lspconfig").setup({
   -- ensure_installed = { "lua_ls", "rust_analyzer", "solargraph", "pyright", "vimls" },
 })
 --
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.solargraph.setup {}
-lspconfig.vimls.setup {}
-lspconfig.lua_ls.setup {}
-lspconfig.rust_analyzer.setup {}
-lspconfig.bashls.setup {}
-lspconfig.tsserver.setup {}
+lspconfig.pyright.setup { capabilities = capabilities,}
+lspconfig.solargraph.setup { capabilities = capabilities,}
+lspconfig.vimls.setup { capabilities = capabilities,}
+lspconfig.lua_ls.setup { capabilities = capabilities,}
+lspconfig.rust_analyzer.setup { capabilities = capabilities,}
+lspconfig.bashls.setup { capabilities = capabilities,}
+lspconfig.tsserver.setup { capabilities = capabilities,}
+lspconfig.html.setup { capabilities = capabilities,}
+lspconfig.cssls.setup { capabilities = capabilities,}
+
+require("lspconfig").lua_ls.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.stdpath "config" .. "/lua"] = true,
+        },
+      },
+    },
+  }
+}
 
 -- DAP
 local dap = require('dap')
@@ -162,6 +202,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+-- Autocompletion and snippets
 -- LspZero
 local lsp = require('lsp-zero').preset({})
 
