@@ -14,7 +14,7 @@ kmap.set("n", "<C-k>", "<C-w>k", { desc = "Increase window height" })
 kmap.set("n", "<C-j>", "<C-w>j", { desc = "Decrease window height" })
 kmap.set("n", "<C-h>", "<C-w>h", { desc = "Decrease window width" })
 kmap.set("n", "<C-l>", "<C-w>l", { desc = "Increase window width" })
---
+
 -- Tab navigation
 kmap.set("n", "<TAB>", "<cmd>bnext<CR>", { desc = "Move to next tab" })
 kmap.set("n", "<S-TAB>", "<cmd>bprevious<CR>", { desc = "Move to previous tab" })
@@ -68,6 +68,12 @@ kmap.set("t", "<C-h>", "<C-\\><C-N><C-w>k", { desc = "Terminal change window dow
 kmap.set("t", "<C-h>", "<C-\\><C-N><C-w>l", { desc = "Terminal change window right" })
 kmap.set("n", "<C-w>t", "<C-w>s:terminal<CR>", { desc = "Open horizontal terminal" })
 
+-- Buffer control
+kmap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Buffer delete" })
+kmap.set("n", "<leader>ba", "<cmd>%bd|e#|bd#<CR>", { desc = "Delete all but current buffer" })
+kmap.set("n", "<leader>bf", "<cmd>bfirst<CR>", { desc = "Move to first buffer" })
+kmap.set("n", "<leader>bl", "<cmd>blast<CR>", { desc = "Move to last buffer" })
+
 -- Plugin keys
 -- Floaterm
 kmap.set("n", "<leader>to", "<cmd>FloatermNew<CR>", { desc = "Open new floating terminal" })
@@ -94,6 +100,12 @@ kmap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" })
 
 -- NvimTree
 kmap.set('n', "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+
+-- Harpoon
+kmap.set('n', "<leader>bm", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "Harpoon mark file" })
+kmap.set('n', "<leader>bl", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "Harpoon toggle saved files menu" })
+kmap.set("n", "<leader>bn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "Harpoon move to next saved file" })
+kmap.set("n", "<leader>bp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "Harpoon move to previous saved file" })
 
 -- LSP
 --
