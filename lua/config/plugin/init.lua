@@ -63,6 +63,10 @@ require("lualine").setup({
 require("Comment").setup()
 
 -- Barbar
+
+-- Harpoon
+require("harpoon").setup()
+
 -- Mason
 require('mason').setup({
     ui = {
@@ -135,7 +139,8 @@ dap.adapters.codelldb = {
   port = "${port}",
   executable = {
     -- CHANGE THIS to your path!
-    command = '/home/kupoman/.local/lib/codelldb/extension/adapter/codelldb',
+    -- command = '/home/kupoman/.local/lib/codelldb/extension/adapter/codelldb',
+    command = vim.fn.stdpath('data') .. '/mason/bin/codelldb.cmd',
     args = {"--port", "${port}"},
 
     -- On windows you may have to uncomment this:
