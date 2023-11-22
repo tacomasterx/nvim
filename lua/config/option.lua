@@ -8,8 +8,8 @@ opt.clipboard = "" --"unnamed" --"unnamedplus"
 opt.autochdir = false
 -- If you want/need a persistent undotree uncomment line 10 or 11 according to your OS and uncomment line 12
 -- opt.undodir = os.getenv("LOCALAPPDATA") .. "/nvim-data/undodir" -- Use this for Windows (unless you use git bashor similar)
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
-opt.undofile = true
+-- opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
+-- opt.undofile = true
 
 -- Number options
 opt.number = true
