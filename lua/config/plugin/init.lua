@@ -65,7 +65,7 @@ require("Comment").setup()
 -- Barbar
 
 -- Harpoon
-require("harpoon").setup()
+--require("harpoon").setup()
 
 -- Mason
 require('mason').setup({
