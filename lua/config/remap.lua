@@ -83,10 +83,13 @@ kmap.set("n", "<leader>tn", "<cmd>FloatermNext<CR>", { desc = "Switch to next fl
 kmap.set("n", "<leader>tp", "<cmd>FloatermPrev<CR>", { desc = "Switch to previous floating terminal" })
 
 -- lazy
-kmap.set("n", "<leader>ll", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+--lazygit
+kmap.set("n", "<leader>lg", "<cmd>FloatermNew --name=lazygit --title=lazygit --height=0.8 --width=0.8 lazygit<CR>", { desc = "Open floating lazygit" })
 
 -- Mason
-kmap.set("n", "<leader>lm", "<cmd>:Mason<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Lazy" })
 
 -- Colorizer
 kmap.set('n', '<leader>ct', "<cmd>ColorizerToggle<cr>", { desc = "Toggle colorizer" })
