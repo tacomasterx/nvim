@@ -35,16 +35,16 @@ kmap.set("v", ">", ">gv")
 -- -- shift + j to move down
 -- kmap.set("n", "J", "ddp", { desc = "Move current line down"})
 -- shift + k to move up
-kmap.set("x", "K", "<cmd>move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+kmap.set("v", "K", "<cmd>move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 -- shift + j to move down
-kmap.set("x", "J", "<cmd>move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
--- Ctrl + j to append line
+kmap.set("v", "J", "<cmd>move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+-- Shift + j to append line
 kmap.set("n", "J", "mzJ'z", { desc = "Append line below to current line" })
 --
 -- ThePrimagen paste
 kmap.set("x", "<leader>p", "\"_dP", { desc = "Paste ignoring buffer" })
 -- ThePrimagen executable (Linux only)
-kmap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Makes current file executable" })
+kmap.set("n", "<leader>xe", "<cmd>!chmod +x %<CR>", { desc = "Makes current file executable" })
 -- asbjornhaland yank
 kmap.set({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yanks to clipboard" })
 kmap.set("n", "<leader>Y", "\"+Y", { desc = "Yanks content after cursor to clipboard" })
@@ -178,6 +178,14 @@ kmap.set("n", "<leader>hW", "<cmd>HopWordMW<CR>", { desc = "Hop to chosen word a
 kmap.set("n", "<leader>hc", "<cmd>HopChar2<CR>", { desc = "Hop to chosen character" })
 kmap.set("n", "<leader>hC", "<cmd>HopChar2MW<CR>", { desc = "Hop to chosen character across buffers" })
 kmap.set("n", "<leader>hh", "<cmd>HopChar1CurrentLine<CR>", { desc = "Hop to chosen character in current line" })
+
+-- nvim Trouble
+kmap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Toggle the trouble list"})
+kmap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Toggle the workspace diagnostics"})
+kmap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "Toggle the document diagnostics"})
+kmap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Toggle the quickfix list"})
+kmap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "Toggle the items from location list"})
+kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
 
 -- nvim Comp
 local has_words_before = function()
