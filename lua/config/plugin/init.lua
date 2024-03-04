@@ -107,7 +107,6 @@ local lspconfig = require('lspconfig')
 lspconfig.pyright.setup { capabilities = capabilities,}
 lspconfig.solargraph.setup { capabilities = capabilities,}
 lspconfig.vimls.setup { capabilities = capabilities,}
-lspconfig.lua_ls.setup { capabilities = capabilities,}
 lspconfig.rust_analyzer.setup { capabilities = capabilities,}
 lspconfig.bashls.setup { capabilities = capabilities,}
 lspconfig.tsserver.setup { capabilities = capabilities,}
