@@ -3,7 +3,7 @@
 - [:us: English](./README.md)
 
 Este es mi intento de crear mi propia configuración de neovim usando lua en lugar de vimscript (y no solo clonando la de alguien más). Al inicio, pensé que podría apañarmela con solo instalar los mismos plugins a los que estaba acostumbrado, pero esa no sería una propia "conversión a lua" así que empecé a alternar plugins.
-Comezé trabajando en mi ordenador Windows, a modo de poder hacer que mi configuración funcione a la primera y evitar los problemas que me enfrenté la vez pasada (comencé usando neovim en Linux lite, posteriormente en Arch), la mayoría de mi configuración no funcionó cuando la intenté en Windows, así que tuve que crear ramas diferentes y removí/intercambié algunas cosas, pero la diferencia era muy notable cada que cambiaba de plataforma, estoy haciendo lo posible para evitar eso.
+Comencé trabajando en mi ordenador Windows, a modo de poder hacer que mi configuración funcione a la primera evitando los problemas que me enfrenté la vez pasada (comencé usando neovim en Linux lite, posteriormente en Arch), la mayoría de mi configuración no funcionó cuando la intenté en Windows, así que tuve que crear ramas diferentes, remover e intercambiar algunas cosas; pero la diferencia era muy notable cada que cambiaba de plataforma, estoy haciendo lo posible para evitar eso.
 
 ## Requerimientos
 * Mi versión de Neovim es:
@@ -19,19 +19,16 @@ Comezé trabajando en mi ordenador Windows, a modo de poder hacer que mi configu
   * sed
 
 ### Para Windows
-* A la fecha en Marzo del 2024 todo funcionó perfectamente en una instalación limpia de Windows 10, sino se presenta algún problema, pueden ignorar lo siguiente.
+* A la fecha en Marzo del 2024 todo funcionó perfectamente en una instalación limpia de Windows 10, sino se presenta algún problema, puedes ignorar lo siguiente.
 * Instala [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
   1. Only the **C/C++** compiler is needed
   1. Solo es necesario el compilador de **C/C++**
-  2. Aquí puedes encontrar una [gía paso a paso en español](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
+  2. Aquí puedes encontrar una [guía paso a paso en español](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
   3. Agrega MingW\bin al "path"
-
-Para evitar un problema molesto en Treesitter, tuve que instalar LLVM por el compilador clang. Usé el manejador de paquetes chocolatey para ello. Hay una línea en `.\init.lua` con un comentario al respecto, si vas a usar alguna alternativa o ninguna, solo borra dicha linea.
+* Para evitar un problema molesto en Treesitter, tuve que instalar LLVM por el compilador clang. Usé el manejador de paquetes chocolatey para ello. Hay una línea en `.\init.lua` con un comentario al respecto, si vas a usar alguna alternativa o ninguna, solo borra dicha linea.
 
 ### Para Linux
-WIP...
-Ojalá funcione sin requerir mayores cambios.
-Bueno, simplemente funciona... Solo revisa `./lua/config/option.lua`.
+Solo revisa `./lua/config/option.lua` y realiza los cambios que consideres pertinentes.
 
 ## Instrucciones
 ### Windows: (Para una mejor experiencia usa la Terminal de Windows y power shell)
