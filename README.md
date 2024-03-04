@@ -19,9 +19,10 @@ I started working on my Windows machine, so I could make my configuration work o
   * sed
     
 ### For Windows
+* As of March 2024 everything worked out of the box in a clean install of Windows 10, so if you don't face any problem you can ignore the following.
 * Install [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
   1. Only the **C/C++** compiler is needed
-  2. Here you can find an [spanish step by step guide](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
+  2. Here you can find an [Spanish step by step guide](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
   3. Add MingW\bin to path
   4. In order to avoid an annoying Treesitter issue, I had to install LLVM for clang compiler. I used chocolatey package manager for it. There is a line in `.\init.lua` with a comment about this problem, if you are going to use an alternative or none at all, just delete that line. Again I used chocolatey.
 

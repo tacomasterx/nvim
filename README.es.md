@@ -19,6 +19,7 @@ Comezé trabajando en mi ordenador Windows, a modo de poder hacer que mi configu
   * sed
 
 ### Para Windows
+* A la fecha en Marzo del 2024 todo funcionó perfectamente en una instalación limpia de Windows 10, sino se presenta algún problema, pueden ignorar lo siguiente.
 * Instala [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
   1. Only the **C/C++** compiler is needed
   1. Solo es necesario el compilador de **C/C++**
