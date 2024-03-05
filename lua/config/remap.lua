@@ -1,4 +1,18 @@
 local kmap = vim.keymap
+local writer_mode_flag = false
+local toggle_numbers = function()
+    if vim.opt.relativenumber:get() then
+        vim.opt.relativenumber = false
+    else
+        vim.opt.relativenumber = true
+    end
+    if vim.opt.number:get() then
+        vim.opt.number = false
+    else
+        vim.opt.number = true
+    end
+end
+
 -- kmap.set({"n", "v"}, "K", "<nop>")
 -- kmap.set({"n", "v"}, "J", "<nop>")
 kmap.set({ "n", "v" }, "Q", "<nop>")
@@ -89,7 +103,7 @@ kmap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 kmap.set("n", "<leader>lg", "<cmd>FloatermNew --name=lazygit --title=lazygit --height=0.8 --width=0.8 lazygit<CR>", { desc = "Open floating lazygit" })
 
 -- Mason
-kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason" })
 
 -- Colorizer
 kmap.set('n', '<leader>ct', "<cmd>ColorizerToggle<cr>", { desc = "Toggle colorizer" })
@@ -128,15 +142,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, {desc = "LspConfig: add workspace folder"}, opts)
+        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, {desc = "LspConfig: remove workspace folder"}, opts)
         vim.keymap.set('n', '<space>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        end, {desc = "LspConfig: list workspace folders"}, opts)
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, {desc = "LspConfig: type definition"}, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {desc = "LspConfig: rename"}, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {desc = "LspConfig: code action"}, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, {desc = "LspConfig: remove workspace folder"}, opts)
         vim.keymap.set('n', '<space>fo', function()
             vim.lsp.buf.format { async = true }
         end, { desc = "Format file" }, opts)
@@ -186,6 +200,53 @@ kmap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagn
 kmap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Toggle the quickfix list"})
 kmap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "Toggle the items from location list"})
 kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
+
+-- Zen Mode
+-- Toggle ZenMode
+kmap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", {desc= "Toggle Zen Mode"})
+
+-- Twilight
+-- Toggle Twilight
+kmap.set("n", "<leader>zt", "<cmd>Twilight<CR>", {desc= "Toggle Twilight"})
+
+-- Simple Writer Mode
+kmap.set( "n", "<leader>zw", function()
+    toggle_numbers()
+    vim.cmd([[  
+        PencilToggle  
+        Twilight
+    ]])
+end
+, {desc = "Toggle a simple writer mode."})
+
+-- Full Writer Mode
+-- ZenMode + Twilight + Pencil + no numbers writer mode.
+kmap.set("n", "<leader>zf",function()
+    if writer_mode_flag then
+        vim.opt.relativenumber = true
+        vim.opt.number = true
+        vim.cmd("PencilOff")
+        if vim.opt.relativenumber:get() == true and vim.opt.number:get() == true then
+            require("zen-mode").toggle({})
+        end
+        writer_mode_flag = false
+        return
+    end
+    vim.opt.relativenumber = false
+    vim.opt.number = false
+    vim.cmd("PencilSoft")
+    if vim.opt.relativenumber:get() == false and vim.opt.number:get() == false then
+        require("zen-mode").toggle({})
+    end
+    writer_mode_flag = true
+end, {desc = "Toggle full writer mode"})
+
+
+-- Toggle numbers
+kmap.set("n", "<leader>zn", function()
+    toggle_numbers()
+end, {desc = "Toggle numbers"})
+
 
 -- nvim Comp
 local has_words_before = function()
