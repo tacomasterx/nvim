@@ -29,15 +29,16 @@ I started working on my Windows machine, so I could make my configuration work o
 ### For Linux
 Just check `./lua/config/option.lua` and set the changes you need.
 I recently had a problem with some plugins, the error message was the following:
+
 `Failed to source '/home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim'
 vim/_editor.lua:0: /home/user/.config/nvim/init.lua..nvim_exec2() called at /home/user/.config/nvim/init.lua:0../home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim, line 1: Vim:E492: Not an editor command
-: ^M
+: ^M`
+`# stacktrace:`
+`- vim/_editor.lua:0 _in_ **cmd**`
+`- .config/nvim/lua/user/plugins/telescope/projects.lua:20 _in_ **config**`
+`- .config/nvim/lua/user/lazy.lua:1`
+`- .config/nvim/init.lua:16`
 
-# stacktrace:
-  - vim/_editor.lua:0 _in_ **cmd**
-  - .config/nvim/lua/user/plugins/telescope/projects.lua:20 _in_ **config**
-  - .config/nvim/lua/user/lazy.lua:1
-  - .config/nvim/init.lua:16` 
 A solution I found in this [reddit post](https://www.reddit.com/r/neovim/comments/13rsado/failed_to_source/) was to delete the `$HOME/.config/nvim/` directory and execute the command `git config --global core.autocrlf input`, then run lazy to install all plugins again.
 
 ## Instructions
