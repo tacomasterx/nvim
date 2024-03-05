@@ -20,10 +20,10 @@ kmap.set("n", "<TAB>", "<cmd>bnext<CR>", { desc = "Move to next tab" })
 kmap.set("n", "<S-TAB>", "<cmd>bprevious<CR>", { desc = "Move to previous tab" })
 
 -- Quit
-kmap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "Forced exit" })
-kmap.set("n", "<Leader>qf", "<cmd>q!<CR>", { desc = "Forced exit" })
-kmap.set("n", "<Leader>qq", "<cmd>q<CR>", { desc = "Exit neovim" })
-kmap.set("n", "<Leader>qw", "<cmd>wq<CR>", { desc = "Save file and exit" })
+-- kmap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "Forced exit" })
+-- kmap.set("n", "<Leader>qf", "<cmd>q!<CR>", { desc = "Forced exit" })
+-- kmap.set("n", "<Leader>qq", "<cmd>q<CR>", { desc = "Exit neovim" })
+-- kmap.set("n", "<Leader>qw", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- better indenting
 kmap.set("v", "<", "<gv")
@@ -50,10 +50,10 @@ kmap.set({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yanks to clipboard" })
 kmap.set("n", "<leader>Y", "\"+Y", { desc = "Yanks content after cursor to clipboard" })
 
 -- Alternate way to save
-kmap.set("n", "<Leader>W", "<cmd>w!<CR>", { desc = "Forced save" })
-kmap.set("n", "<Leader>wf", "<cmd>w!<CR>", { desc = "Forced save" })
-kmap.set("n", "<Leader>ww", "<cmd>w<CR>", { desc = "Save file" })
-kmap.set("n", "<Leader>wq", "<cmd>wq<CR>", { desc = "Save file and exit" })
+-- kmap.set("n", "<Leader>W", "<cmd>w!<CR>", { desc = "Forced save" })
+-- kmap.set("n", "<Leader>wf", "<cmd>w!<CR>", { desc = "Forced save" })
+-- kmap.set("n", "<Leader>ww", "<cmd>w<CR>", { desc = "Save file" })
+-- kmap.set("n", "<Leader>wq", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- Add , : or ; at the end of line
 kmap.set("n", "<Leader>;", "A;<Esc>", { desc = "Add ; at the end of line" })

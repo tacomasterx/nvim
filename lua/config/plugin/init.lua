@@ -99,7 +99,7 @@ cmp.setup({
 })
 
 require("mason-lspconfig").setup({
-  -- ensure_installed = { "lua_ls", "rust_analyzer", "solargraph", "pyright", "vimls" },
+  ensure_installed = { "lua_ls"},
 })
 --
 -- Setup language servers.
