@@ -25,10 +25,21 @@ Comencé trabajando en mi ordenador Windows, a modo de poder hacer que mi config
   1. Solo es necesario el compilador de **C/C++**
   2. Aquí puedes encontrar una [guía paso a paso en español](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
   3. Agrega MingW\bin al "path"
-* Para evitar un problema molesto en Treesitter, tuve que instalar LLVM por el compilador clang. Usé el manejador de paquetes chocolatey para ello. Hay una línea en `.\init.lua` con un comentario al respecto, si vas a usar alguna alternativa o ninguna, solo borra dicha linea.
+  4. Para evitar un problema molesto en Treesitter, tuve que instalar LLVM por el compilador clang. Usé el manejador de paquetes chocolatey para ello. Hay una línea en `.\init.lua` con un comentario al respecto, si vas a usar alguna alternativa o ninguna, solo borra dicha linea.
 
 ### Para Linux
 Solo revisa `./lua/config/option.lua` y realiza los cambios que consideres pertinentes.
+Recientemente tuve un problema con algunos plugins, el mensaje de error fue el siguiente.
+`Failed to source '/home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim'
+vim/_editor.lua:0: /home/user/.config/nvim/init.lua..nvim_exec2() called at /home/user/.config/nvim/init.lua:0../home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim, line 1: Vim:E492: Not an editor command
+: ^M
+
+# stacktrace:
+  - vim/_editor.lua:0 _in_ **cmd**
+  - .config/nvim/lua/user/plugins/telescope/projects.lua:20 _in_ **config**
+  - .config/nvim/lua/user/lazy.lua:1
+  - .config/nvim/init.lua:16` 
+Una solución que encontré en este [post de reddit](https://www.reddit.com/r/neovim/comments/13rsado/failed_to_source/) fue borrar el directorio `$HOME/.config/nvim/` y ejecutar el comando `git config --global core.autocrlf input`.
 
 ## Instrucciones
 ### Windows: (Para una mejor experiencia usa la Terminal de Windows y power shell)
