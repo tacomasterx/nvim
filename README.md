@@ -3,7 +3,7 @@
 - :us: English
 
 This is my attempt at creating my own neovim configuration using lua instead of vimscript (and not just cloning someone else's). At first, I thought I could get away with just installing the same plugins I was used to, but that was not a proper "lua conversion" so I started switching pluggins.
-I started working on my Windows machine, so I could make my configuration work on it first and avoid the problems I faced last time (I started using neovim on a Linux lite machine, then moved to Arch), most of my configuration did not work when I tried at Windows, so I created diferent branches and removed/switched some stuff, but the difference was really obvious every time I used sitched platforms, I'm trying to avoid that as much as possible now.
+I started working on my Windows machine, so I could make my configuration work on it first and avoid the problems I faced last time (I started using neovim on a Linux lite machine, then moved to Arch), most of my configuration did not work when I tried at Windows, so I created diferent branches and removed/switched some stuff, but the difference was really obvious every time I switched platforms, I'm trying to avoid that as much as possible now.
 
 ## Requirements
 * My neovim version is:
@@ -54,7 +54,7 @@ A solution I found in this [reddit post](https://www.reddit.com/r/neovim/comment
 
 ### General:
 3. Try to use Lazy:
-  * Select Lazy pluggin install at the dashboard
+  * Select Lazy plugin install at the dashboard
   * Press **Space bar** then **l**
   * Or use the command `:Lazy`
 4. For syntax highlight and lsp support:
@@ -62,5 +62,5 @@ A solution I found in this [reddit post](https://www.reddit.com/r/neovim/comment
     2. Use the command `:Mason` and wait for it to finish
     3. Open the file `nvim/lua/config/plugin/init.lua`
     4. Search for `Setup language servers`
-    5. Add the languaje server setup (`lspconfig.language_server_name.setup {}`)
+    5. Add the language server setup (`lspconfig.language_server_name.setup {}`)
     6. Restart neovim, just in case
