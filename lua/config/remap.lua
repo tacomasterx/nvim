@@ -13,6 +13,15 @@ local toggle_numbers = function()
     end
 end
 
+local toggle_spell = function(language)
+    if vim.opt.spell:get() then
+        vim.opt.spell = false
+    else
+        vim.opt.spell = true
+        vim.opt.spelllang = language
+    end
+end
+
 -- kmap.set({"n", "v"}, "K", "<nop>")
 -- kmap.set({"n", "v"}, "J", "<nop>")
 kmap.set({ "n", "v" }, "Q", "<nop>")
@@ -210,22 +219,33 @@ kmap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", {desc= "Toggle Zen Mode"})
 kmap.set("n", "<leader>zt", "<cmd>Twilight<CR>", {desc= "Toggle Twilight"})
 
 -- Simple Writer Mode
-kmap.set( "n", "<leader>zw", function()
+kmap.set( "n", "<leader>zwe", function()
     toggle_numbers()
+    toggle_spell("en_us")
     vim.cmd([[  
         PencilToggle  
         Twilight
     ]])
 end
-, {desc = "Toggle a simple writer mode."})
+, {desc = "Toggle a simple writer mode in english."})
+kmap.set( "n", "<leader>zws", function()
+    toggle_numbers()
+    toggle_spell("es_mx")
+    vim.cmd([[  
+        PencilToggle  
+        Twilight
+    ]])
+end
+, {desc = "Toggle a simple writer mode in spanish."})
 
 -- Full Writer Mode
 -- ZenMode + Twilight + Pencil + no numbers writer mode.
-kmap.set("n", "<leader>zf",function()
+kmap.set("n", "<leader>zfe",function()
     if writer_mode_flag then
         vim.opt.relativenumber = true
         vim.opt.number = true
         vim.cmd("PencilOff")
+        toggle_spell("en_us")
         if vim.opt.relativenumber:get() == true and vim.opt.number:get() == true then
             require("zen-mode").toggle({})
         end
@@ -235,11 +255,33 @@ kmap.set("n", "<leader>zf",function()
     vim.opt.relativenumber = false
     vim.opt.number = false
     vim.cmd("PencilSoft")
+    toggle_spell("en_us")
     if vim.opt.relativenumber:get() == false and vim.opt.number:get() == false then
         require("zen-mode").toggle({})
     end
     writer_mode_flag = true
-end, {desc = "Toggle full writer mode"})
+end, {desc = "Toggle full writer mode English"})
+kmap.set("n", "<leader>zfs",function()
+    if writer_mode_flag then
+        vim.opt.relativenumber = true
+        vim.opt.number = true
+        vim.cmd("PencilOff")
+        toggle_spell("es_mx")
+        if vim.opt.relativenumber:get() == true and vim.opt.number:get() == true then
+            require("zen-mode").toggle({})
+        end
+        writer_mode_flag = false
+        return
+    end
+    vim.opt.relativenumber = false
+    vim.opt.number = false
+    vim.cmd("PencilSoft")
+    toggle_spell("es_mx")
+    if vim.opt.relativenumber:get() == false and vim.opt.number:get() == false then
+        require("zen-mode").toggle({})
+    end
+    writer_mode_flag = true
+end, {desc = "Toggle full writer mode Spanish"})
 
 
 -- Toggle numbers
@@ -247,6 +289,13 @@ kmap.set("n", "<leader>zn", function()
     toggle_numbers()
 end, {desc = "Toggle numbers"})
 
+-- Toggle spell
+kmap.set("n", "<leader>zse", function()
+    toggle_spell("en_us")
+end, {desc = "Toggle spell English"})
+kmap.set("n", "<leader>zss", function()
+    toggle_spell("en_us")
+end, {desc = "Toggle spell Spanish"})
 
 -- nvim Comp
 local has_words_before = function()
