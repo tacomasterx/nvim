@@ -8,8 +8,8 @@ opt.clipboard = "" --"unnamed" --"unnamedplus"
 opt.autochdir = false
 -- If you want/need a persistent undotree uncomment line 10 or 11 according to your OS and uncomment line 12
 -- opt.undodir = os.getenv("LOCALAPPDATA") .. "/nvim-data/undodir" -- Use this for Windows (unless you use git bashor similar)
--- opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
--- opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Use this for Linux
+opt.undofile = true
 
 -- Number options
 opt.number = true
@@ -51,6 +51,9 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.formatoptions = "jqlt"
 opt.hidden = true
 
+-- Obsidian.nvim required options
+opt.conceallevel = 1
+
 -- Enable syntax highlighting
 vim.cmd("syntax enable")
 
@@ -65,6 +68,7 @@ vim.cmd("filetype plugin on")
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
 
 -- function! SetPsTerminal()
 --     opt.shell=powershell.exe

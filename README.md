@@ -3,7 +3,7 @@
 - :us: English
 
 This is my attempt at creating my own neovim configuration using lua instead of vimscript (and not just cloning someone else's). At first, I thought I could get away with just installing the same plugins I was used to, but that was not a proper "lua conversion" so I started switching pluggins.
-I started working on my Windows machine, so I could make my configuration work on it first and avoid the problems I faced last time (I started using neovim on a Linux lite machine, then moved to Arch), most of my configuration did not work when I tried at Windows, so I created diferent branches and removed/switched some stuff, but the difference was really obvious every time I used sitched platforms, I'm trying to avoid that as much as possible now.
+I started working on my Windows machine, so I could make my configuration work on it first and avoid the problems I faced last time (I started using neovim on a Linux lite machine, then moved to Arch), most of my configuration did not work when I tried at Windows, so I created diferent branches and removed/switched some stuff, but the difference was really obvious every time I switched platforms, I'm trying to avoid that as much as possible now.
 
 ## Requirements
 * My neovim version is:
@@ -19,16 +19,27 @@ I started working on my Windows machine, so I could make my configuration work o
   * sed
     
 ### For Windows
+* As of March 2024 everything worked out of the box in a clean install of Windows 10, so if you don't face any problem you can ignore the following.
 * Install [MingW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
   1. Only the **C/C++** compiler is needed
-  2. Here you can find an [spanish step by step guide](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
+  2. Here you can find an [Spanish step by step guide](https://platzi.com/tutoriales/1189-algoritmos-2017/1901-como-instalar-gcc-para-compilar-programas-en-c-desde-la-consola-en-windows/)
   3. Add MingW\bin to path
   4. In order to avoid an annoying Treesitter issue, I had to install LLVM for clang compiler. I used chocolatey package manager for it. There is a line in `.\init.lua` with a comment about this problem, if you are going to use an alternative or none at all, just delete that line. Again I used chocolatey.
 
 ### For Linux
-WIP...
-Hopefully it works without major tweaks.
-Well, it just works... Just check `./lua/config/option.lua`.
+Just check `./lua/config/option.lua` and set the changes you need.
+I recently had a problem with some plugins, the error message was the following:
+
+`Failed to source '/home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim'
+vim/_editor.lua:0: /home/user/.config/nvim/init.lua..nvim_exec2() called at /home/user/.config/nvim/init.lua:0../home/user/.local/share/nvim/lazy/plenary.nvim/plugin/plenary.vim, line 1: Vim:E492: Not an editor command
+: ^M`
+`# stacktrace:`
+`- vim/_editor.lua:0 _in_ **cmd**`
+`- .config/nvim/lua/user/plugins/telescope/projects.lua:20 _in_ **config**`
+`- .config/nvim/lua/user/lazy.lua:1`
+`- .config/nvim/init.lua:16`
+
+A solution I found in this [reddit post](https://www.reddit.com/r/neovim/comments/13rsado/failed_to_source/) was to delete the `$HOME/.config/nvim/` directory and execute the command `git config --global core.autocrlf input`, then run lazy to install all plugins again.
 
 ## Instructions
 ### Windows: (For a better experience use the Windows Terminal and Power Shell)
@@ -43,7 +54,7 @@ Well, it just works... Just check `./lua/config/option.lua`.
 
 ### General:
 3. Try to use Lazy:
-  * Select Lazy pluggin install at the dashboard
+  * Select Lazy plugin install at the dashboard
   * Press **Space bar** then **l**
   * Or use the command `:Lazy`
 4. For syntax highlight and lsp support:
@@ -51,5 +62,5 @@ Well, it just works... Just check `./lua/config/option.lua`.
     2. Use the command `:Mason` and wait for it to finish
     3. Open the file `nvim/lua/config/plugin/init.lua`
     4. Search for `Setup language servers`
-    5. Add the languaje server setup (`lspconfig.language_server_name.setup {}`)
+    5. Add the language server setup (`lspconfig.language_server_name.setup {}`)
     6. Restart neovim, just in case

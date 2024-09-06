@@ -1,4 +1,27 @@
 local kmap = vim.keymap
+local writer_mode_flag = false
+local toggle_numbers = function()
+    if vim.opt.relativenumber:get() then
+        vim.opt.relativenumber = false
+    else
+        vim.opt.relativenumber = true
+    end
+    if vim.opt.number:get() then
+        vim.opt.number = false
+    else
+        vim.opt.number = true
+    end
+end
+
+local toggle_spell = function(language)
+    if vim.opt.spell:get() then
+        vim.opt.spell = false
+    else
+        vim.opt.spell = true
+        vim.opt.spelllang = language
+    end
+end
+
 -- kmap.set({"n", "v"}, "K", "<nop>")
 -- kmap.set({"n", "v"}, "J", "<nop>")
 kmap.set({ "n", "v" }, "Q", "<nop>")
@@ -20,10 +43,10 @@ kmap.set("n", "<TAB>", "<cmd>bnext<CR>", { desc = "Move to next tab" })
 kmap.set("n", "<S-TAB>", "<cmd>bprevious<CR>", { desc = "Move to previous tab" })
 
 -- Quit
-kmap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "Forced exit" })
-kmap.set("n", "<Leader>qf", "<cmd>q!<CR>", { desc = "Forced exit" })
-kmap.set("n", "<Leader>qq", "<cmd>q<CR>", { desc = "Exit neovim" })
-kmap.set("n", "<Leader>qw", "<cmd>wq<CR>", { desc = "Save file and exit" })
+-- kmap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "Forced exit" })
+-- kmap.set("n", "<Leader>qf", "<cmd>q!<CR>", { desc = "Forced exit" })
+-- kmap.set("n", "<Leader>qq", "<cmd>q<CR>", { desc = "Exit neovim" })
+-- kmap.set("n", "<Leader>qw", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- better indenting
 kmap.set("v", "<", "<gv")
@@ -35,25 +58,25 @@ kmap.set("v", ">", ">gv")
 -- -- shift + j to move down
 -- kmap.set("n", "J", "ddp", { desc = "Move current line down"})
 -- shift + k to move up
-kmap.set("x", "K", "<cmd>move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+kmap.set("v", "K", "<cmd>move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 -- shift + j to move down
-kmap.set("x", "J", "<cmd>move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
--- Ctrl + j to append line
+kmap.set("v", "J", "<cmd>move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+-- Shift + j to append line
 kmap.set("n", "J", "mzJ'z", { desc = "Append line below to current line" })
 --
 -- ThePrimagen paste
 kmap.set("x", "<leader>p", "\"_dP", { desc = "Paste ignoring buffer" })
 -- ThePrimagen executable (Linux only)
-kmap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Makes current file executable" })
+kmap.set("n", "<leader>xe", "<cmd>!chmod +x %<CR>", { desc = "Makes current file executable" })
 -- asbjornhaland yank
 kmap.set({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yanks to clipboard" })
 kmap.set("n", "<leader>Y", "\"+Y", { desc = "Yanks content after cursor to clipboard" })
 
 -- Alternate way to save
-kmap.set("n", "<Leader>W", "<cmd>w!<CR>", { desc = "Forced save" })
-kmap.set("n", "<Leader>wf", "<cmd>w!<CR>", { desc = "Forced save" })
-kmap.set("n", "<Leader>ww", "<cmd>w<CR>", { desc = "Save file" })
-kmap.set("n", "<Leader>wq", "<cmd>wq<CR>", { desc = "Save file and exit" })
+-- kmap.set("n", "<Leader>W", "<cmd>w!<CR>", { desc = "Forced save" })
+-- kmap.set("n", "<Leader>wf", "<cmd>w!<CR>", { desc = "Forced save" })
+-- kmap.set("n", "<Leader>ww", "<cmd>w<CR>", { desc = "Save file" })
+-- kmap.set("n", "<Leader>wq", "<cmd>wq<CR>", { desc = "Save file and exit" })
 
 -- Add , : or ; at the end of line
 kmap.set("n", "<Leader>;", "A;<Esc>", { desc = "Add ; at the end of line" })
@@ -83,10 +106,13 @@ kmap.set("n", "<leader>tn", "<cmd>FloatermNext<CR>", { desc = "Switch to next fl
 kmap.set("n", "<leader>tp", "<cmd>FloatermPrev<CR>", { desc = "Switch to previous floating terminal" })
 
 -- lazy
-kmap.set("n", "<leader>ll", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+--lazygit
+kmap.set("n", "<leader>lg", "<cmd>FloatermNew --name=lazygit --title=lazygit --height=0.8 --width=0.8 lazygit<CR>", { desc = "Open floating lazygit" })
 
 -- Mason
-kmap.set("n", "<leader>lm", "<cmd>:Mason<cr>", { desc = "Lazy" })
+kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason" })
 
 -- Colorizer
 kmap.set('n', '<leader>ct', "<cmd>ColorizerToggle<cr>", { desc = "Toggle colorizer" })
@@ -125,15 +151,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, {desc = "LspConfig: add workspace folder"}, opts)
+        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, {desc = "LspConfig: remove workspace folder"}, opts)
         vim.keymap.set('n', '<space>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        end, {desc = "LspConfig: list workspace folders"}, opts)
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, {desc = "LspConfig: type definition"}, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {desc = "LspConfig: rename"}, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {desc = "LspConfig: code action"}, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, {desc = "LspConfig: remove workspace folder"}, opts)
         vim.keymap.set('n', '<space>fo', function()
             vim.lsp.buf.format { async = true }
         end, { desc = "Format file" }, opts)
@@ -175,6 +201,101 @@ kmap.set("n", "<leader>hW", "<cmd>HopWordMW<CR>", { desc = "Hop to chosen word a
 kmap.set("n", "<leader>hc", "<cmd>HopChar2<CR>", { desc = "Hop to chosen character" })
 kmap.set("n", "<leader>hC", "<cmd>HopChar2MW<CR>", { desc = "Hop to chosen character across buffers" })
 kmap.set("n", "<leader>hh", "<cmd>HopChar1CurrentLine<CR>", { desc = "Hop to chosen character in current line" })
+
+-- nvim Trouble
+kmap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Toggle the trouble list"})
+kmap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Toggle the workspace diagnostics"})
+kmap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "Toggle the document diagnostics"})
+kmap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Toggle the quickfix list"})
+kmap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "Toggle the items from location list"})
+kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
+
+-- Zen Mode
+-- Toggle ZenMode
+kmap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", {desc= "Toggle Zen Mode"})
+
+-- Twilight
+-- Toggle Twilight
+kmap.set("n", "<leader>zt", "<cmd>Twilight<CR>", {desc= "Toggle Twilight"})
+
+-- Simple Writer Mode
+kmap.set( "n", "<leader>zwe", function()
+    toggle_numbers()
+    toggle_spell("en_us")
+    vim.cmd([[  
+        PencilToggle  
+        Twilight
+    ]])
+end
+, {desc = "Toggle a simple writer mode in english."})
+kmap.set( "n", "<leader>zws", function()
+    toggle_numbers()
+    toggle_spell("es_mx")
+    vim.cmd([[  
+        PencilToggle  
+        Twilight
+    ]])
+end
+, {desc = "Toggle a simple writer mode in spanish."})
+
+-- Full Writer Mode
+-- ZenMode + Twilight + Pencil + no numbers writer mode.
+kmap.set("n", "<leader>zfe",function()
+    if writer_mode_flag then
+        vim.opt.relativenumber = true
+        vim.opt.number = true
+        vim.cmd("PencilOff")
+        toggle_spell("en_us")
+        if vim.opt.relativenumber:get() == true and vim.opt.number:get() == true then
+            require("zen-mode").toggle({})
+        end
+        writer_mode_flag = false
+        return
+    end
+    vim.opt.relativenumber = false
+    vim.opt.number = false
+    vim.cmd("PencilSoft")
+    toggle_spell("en_us")
+    if vim.opt.relativenumber:get() == false and vim.opt.number:get() == false then
+        require("zen-mode").toggle({})
+    end
+    writer_mode_flag = true
+end, {desc = "Toggle full writer mode English"})
+kmap.set("n", "<leader>zfs",function()
+    if writer_mode_flag then
+        vim.opt.relativenumber = true
+        vim.opt.number = true
+        vim.cmd("PencilOff")
+        toggle_spell("es_mx")
+        if vim.opt.relativenumber:get() == true and vim.opt.number:get() == true then
+            require("zen-mode").toggle({})
+        end
+        writer_mode_flag = false
+        return
+    end
+    vim.opt.relativenumber = false
+    vim.opt.number = false
+    vim.cmd("PencilSoft")
+    toggle_spell("es_mx")
+    if vim.opt.relativenumber:get() == false and vim.opt.number:get() == false then
+        require("zen-mode").toggle({})
+    end
+    writer_mode_flag = true
+end, {desc = "Toggle full writer mode Spanish"})
+
+
+-- Toggle numbers
+kmap.set("n", "<leader>zn", function()
+    toggle_numbers()
+end, {desc = "Toggle numbers"})
+
+-- Toggle spell
+kmap.set("n", "<leader>zse", function()
+    toggle_spell("en_us")
+end, {desc = "Toggle spell English"})
+kmap.set("n", "<leader>zss", function()
+    toggle_spell("en_us")
+end, {desc = "Toggle spell Spanish"})
 
 -- nvim Comp
 local has_words_before = function()
