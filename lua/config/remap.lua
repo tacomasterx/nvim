@@ -203,12 +203,13 @@ kmap.set("n", "<leader>hC", "<cmd>HopChar2MW<CR>", { desc = "Hop to chosen chara
 kmap.set("n", "<leader>hh", "<cmd>HopChar1CurrentLine<CR>", { desc = "Hop to chosen character in current line" })
 
 -- nvim Trouble
-kmap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Toggle the trouble list"})
-kmap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Toggle the workspace diagnostics"})
-kmap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "Toggle the document diagnostics"})
-kmap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Toggle the quickfix list"})
-kmap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "Toggle the items from location list"})
-kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
+kmap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Toggle the trouble diagnostics list"})
+kmap.set("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols (Trouble)"})
+kmap.set("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Toggle the buffer diagnostics"})
+kmap.set("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", { desc = "Toggle the quickfix list"})
+kmap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Toggle the items from location list"})
+kmap.set("n", "<leader>xL", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", { desc = "LSP Definitions / references / ... (Trouble"})
+-- kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
 
 -- Zen Mode
 -- Toggle ZenMode
