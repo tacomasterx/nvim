@@ -116,7 +116,7 @@ lspconfig.cssls.setup { capabilities = capabilities,}
 lspconfig.clangd.setup { capabilities = capabilities,}
 lspconfig.gopls.setup { capabilities = capabilities,}
 lspconfig.yamlls.setup { capabilities = capabilities,}
-lspconfig.arduino.setup { capabilities = capabilities,}
+lspconfig.arduino_language_server.setup { capabilities = capabilities,}
 lspconfig.dockerls.setup { capabilities = capabilities,}
 lspconfig.docker_compose_language_service.setup { capabilities = capabilities,}
 
