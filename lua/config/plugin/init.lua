@@ -109,7 +109,10 @@ lspconfig.solargraph.setup { capabilities = capabilities,}
 lspconfig.vimls.setup { capabilities = capabilities,}
 lspconfig.rust_analyzer.setup { capabilities = capabilities,}
 lspconfig.bashls.setup { capabilities = capabilities,}
--- lspconfig.tsserver.setup { capabilities = capabilities,}
+lspconfig.denols.setup { capabilities = capabilities,}
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
 -- npm install -g typescript typescript-language-server
 lspconfig.html.setup { capabilities = capabilities,}
 lspconfig.cssls.setup { capabilities = capabilities,}
