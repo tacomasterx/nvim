@@ -121,6 +121,7 @@ lspconfig.gopls.setup { capabilities = capabilities,}
 lspconfig.yamlls.setup { capabilities = capabilities,}
 lspconfig.arduino_language_server.setup { capabilities = capabilities,}
 lspconfig.dockerls.setup { capabilities = capabilities,}
+lspconfig.fish_lsp.setup { capabilities = capabilities,}
 lspconfig.docker_compose_language_service.setup { capabilities = capabilities,}
 
 require("lspconfig").lua_ls.setup {

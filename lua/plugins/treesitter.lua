@@ -40,7 +40,8 @@ return {
 			context_commentstring = { enable = true, enable_autocmd = false },
 			ensure_installed = {
 				"bash",
-				-- "c",
+				"c",
+				"cpp",
 				"html",
 				"javascript",
 				"json",
@@ -54,7 +55,6 @@ return {
 				"regex",
 				-- "ruby",
 				-- "rust",
-				-- "tsx",
 				-- "typescript",
 				"vim",
 				"vimdoc",

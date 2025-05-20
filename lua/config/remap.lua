@@ -295,7 +295,7 @@ kmap.set("n", "<leader>zse", function()
     toggle_spell("en_us")
 end, {desc = "Toggle spell English"})
 kmap.set("n", "<leader>zss", function()
-    toggle_spell("en_us")
+    toggle_spell("es_mx")
 end, {desc = "Toggle spell Spanish"})
 
 -- nvim Comp
