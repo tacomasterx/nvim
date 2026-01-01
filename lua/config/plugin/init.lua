@@ -82,8 +82,8 @@ require('mason').setup({
 local cmp = require('cmp')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("luasnip.loaders.from_vscode").lazy_load()
-
+-- require("luasnip.loaders.from_vscode").lazy_load()
+--[[
 cmp.setup({
     snippet = {
     expand = function(args)
@@ -97,49 +97,117 @@ cmp.setup({
         { name = 'buffer' },
     }),
 })
-
+--]]
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls"},
+  ensure_installed = {
+      "lua_ls",
+      "rust_analyzer",
+      "denols",
+      "gopls",
+      "cssls",
+      "clangd",
+      "vimls",
+      "fish_lsp",
+      "html",
+      "bashls"
+  },
 })
 --
+-- npm install -g typescript typescript-language-server
 -- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup { capabilities = capabilities,}
-lspconfig.solargraph.setup { capabilities = capabilities,}
-lspconfig.vimls.setup { capabilities = capabilities,}
-lspconfig.rust_analyzer.setup { capabilities = capabilities,}
-lspconfig.bashls.setup { capabilities = capabilities,}
-lspconfig.denols.setup { capabilities = capabilities,}
+-- local lspconfig = require('lspconfig')
+-- lspconfig.vimls.setup { capabilities = capabilities,}
+-- lspconfig.rust_analyzer.setup { capabilities = capabilities,}
+-- lspconfig.bashls.setup { capabilities = capabilities,}
+-- lspconfig.denols.setup { capabilities = capabilities,}
+-- lspconfig.fish_lsp.setup { capabilities = capabilities,}
+-- lspconfig.html.setup { capabilities = capabilities,}
+-- lspconfig.cssls.setup { capabilities = capabilities,}
+-- lspconfig.clangd.setup { capabilities = capabilities,}
+-- lspconfig.gopls.setup { capabilities = capabilities,}
 vim.g.markdown_fenced_languages = {
   "ts=typescript"
 }
--- npm install -g typescript typescript-language-server
-lspconfig.html.setup { capabilities = capabilities,}
-lspconfig.cssls.setup { capabilities = capabilities,}
-lspconfig.clangd.setup { capabilities = capabilities,}
-lspconfig.gopls.setup { capabilities = capabilities,}
-lspconfig.yamlls.setup { capabilities = capabilities,}
-lspconfig.arduino_language_server.setup { capabilities = capabilities,}
-lspconfig.dockerls.setup { capabilities = capabilities,}
-lspconfig.fish_lsp.setup { capabilities = capabilities,}
-lspconfig.docker_compose_language_service.setup { capabilities = capabilities,}
+-- lspconfig.pyright.setup { capabilities = capabilities,}
+-- lspconfig.solargraph.setup { capabilities = capabilities,}
+-- lspconfig.yamlls.setup { capabilities = capabilities,}
+-- lspconfig.arduino_language_server.setup { capabilities = capabilities,}
+-- lspconfig.dockerls.setup { capabilities = capabilities,}
+-- lspconfig.docker_compose_language_service.setup { capabilities = capabilities,}
 
-require("lspconfig").lua_ls.setup {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.stdpath "config" .. "/lua"] = true,
+-- Ensured
+
+vim.lsp.config('lua_ls', {
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                    [vim.fn.stdpath "config" .. "/lua"] = true,
+                },
+            },
         },
-      },
-    },
-  }
-}
+    }
+})
+
+vim.lsp.config('rust_analyzer', {
+
+})
+
+vim.lsp.config('bashls', {
+})
+
+vim.lsp.config('fish_lsp', {
+})
+
+vim.lsp.config('vimls', {
+})
+
+vim.lsp.config('cssls', {
+})
+
+vim.lsp.config('clangd', {
+})
+
+vim.lsp.config('denols', {
+})
+
+vim.lsp.config('html', {
+})
+
+vim.lsp.config('gopls', {
+})
+
+-- New additions
+
+vim.lsp.config('docker_compose_language_service', {
+})
+
+vim.lsp.config('dockerls', {
+})
+
+vim.lsp.config('arduino_language_server', {
+})
+
+vim.lsp.config('solargraph', {
+})
+
+vim.lsp.config('yamlls', {
+})
+
+vim.lsp.config('pyright', {
+})
+
+
+
+
+
+
+
 
 -- DAP
 local dap = require('dap')
@@ -192,6 +260,8 @@ require("dapui").setup()
 require('dap-ruby').setup()
 
 -- Rust tools
+--
+--[[
 local rt = require("rust-tools")
 
 rt.setup({
@@ -209,6 +279,7 @@ rt.setup({
       },
   },
 })
+]]--
 
 -- DAP autostart
 local dapui = require("dapui")
@@ -223,6 +294,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- Autocompletion and snippets
+--[[
 -- LspZero
 local lsp = require('lsp-zero').preset({})
 
@@ -232,7 +304,7 @@ end)
 
 lsp.setup()
 
-local luasnip = require('luasnip')
+--local luasnip = require('luasnip')
 
 local unlinkgrp = vim.api.nvim_create_augroup(
   'UnlinkSnippetOnModeChange',
@@ -254,3 +326,4 @@ vim.api.nvim_create_autocmd('ModeChanged', {
     end
   end,
 })
+]]--
