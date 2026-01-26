@@ -202,12 +202,8 @@ vim.lsp.config('yamlls', {
 vim.lsp.config('pyright', {
 })
 
-
-
-
-
-
-
+-- Omnisharp
+vim.cmd('let g:OmniSharp_server_use_mono = 1')
 
 -- DAP
 local dap = require('dap')
