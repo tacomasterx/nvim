@@ -93,6 +93,9 @@ kmap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 --lazygit
 kmap.set("n", "<leader>lg", "<cmd>FloatermNew --name=lazygit --title=lazygit --height=0.8 --width=0.8 lazygit<CR>", { desc = "Open floating lazygit" })
 
+-- Mason
+kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason" })
+
 -- telescope
 local builtin = require('telescope.builtin')
 kmap.set('n', '<leader>ff', builtin.find_files, { desc = "Fuzzy find files" })
@@ -108,4 +111,29 @@ kmap.set('n', "<leader>bm", "<cmd>lua require('harpoon.mark').add_file()<CR>", {
 kmap.set('n', "<leader>bl", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "Harpoon toggle saved files menu" })
 kmap.set("n", "<leader>bn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "Harpoon move to next saved file" })
 kmap.set("n", "<leader>bp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "Harpoon move to previous saved file" })
+
+-- Vim Test
+kmap.set("n", "<leader>tsn", "<cmd>TestNearest<CR>", { desc = "Test nearest to cursor" })
+kmap.set("n", "<leader>tsf", "<cmd>TestFile<CR>", { desc = "All tests from current file" })
+kmap.set("n", "<leader>tss", "<cmd>TestSuite<CR>", { desc = "Performs all test from current project" })
+kmap.set("n", "<leader>tsl", "<cmd>TestLast<CR>", { desc = "Runs the last test" })
+kmap.set("n", "<leader>tsv", "<cmd>TestVisit<CR>", { desc = "Visits the test file from which you last run your tests" })
+
+-- Nvim Comment
+kmap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle single line comment" })
+kmap.set("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = "Toggle line comment (visual)" })
+-- '<Plug>(comment_toggle_linewise_current)'
+-- or '<Plug>(comment_toggle_linewise_count)'
+
+-- Undotree
+kmap.set("n", "<leader>ut", "<cmd>UndotreeToggle<CR>", { desc = "Toggle Undotree" })
+
+-- Hop
+kmap.set("n", "<leader>hl", "<cmd>HopLineStart<CR>", { desc = "Hop to chosen line" })
+kmap.set("n", "<leader>hL", "<cmd>HopLineStartMW<CR>", { desc = "Hop to chosen line across buffers" })
+kmap.set("n", "<leader>hw", "<cmd>HopWord<CR>", { desc = "Hop to chosen word" })
+kmap.set("n", "<leader>hW", "<cmd>HopWordMW<CR>", { desc = "Hop to chosen word across buffers" })
+kmap.set("n", "<leader>hc", "<cmd>HopChar2<CR>", { desc = "Hop to chosen character" })
+kmap.set("n", "<leader>hC", "<cmd>HopChar2MW<CR>", { desc = "Hop to chosen character across buffers" })
+kmap.set("n", "<leader>hh", "<cmd>HopChar2<CR>", { desc = "Hop to chosen character" })
 
