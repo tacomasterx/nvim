@@ -33,7 +33,7 @@ require("mason-lspconfig").setup({
         "clangd",
         "pylsp",
         "ruby_lsp",
-        "gopls",
+        -- "gopls",
         "zls",
         "yamlls",
         "dockerls",
@@ -83,4 +83,14 @@ require("lualine").setup({
 	inactive_winbar = {},
 	extensions = {},
 })
+
+-- Colorizer
+require('colorizer').setup {
+  'css';
+  'javascript';
+  'toml';
+  html = {
+    mode = 'foreground';
+  }
+}
 

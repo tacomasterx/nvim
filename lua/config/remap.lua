@@ -96,6 +96,9 @@ kmap.set("n", "<leader>lg", "<cmd>FloatermNew --name=lazygit --title=lazygit --h
 -- Mason
 kmap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason" })
 
+-- Colorizer
+kmap.set('n', '<leader>ct', "<cmd>ColorizerToggle<cr>", { desc = "Toggle colorizer" })
+
 -- telescope
 local builtin = require('telescope.builtin')
 kmap.set('n', '<leader>ff', builtin.find_files, { desc = "Fuzzy find files" })
@@ -118,6 +121,15 @@ kmap.set("n", "<leader>tsf", "<cmd>TestFile<CR>", { desc = "All tests from curre
 kmap.set("n", "<leader>tss", "<cmd>TestSuite<CR>", { desc = "Performs all test from current project" })
 kmap.set("n", "<leader>tsl", "<cmd>TestLast<CR>", { desc = "Runs the last test" })
 kmap.set("n", "<leader>tsv", "<cmd>TestVisit<CR>", { desc = "Visits the test file from which you last run your tests" })
+
+-- nvim Trouble
+kmap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Toggle the trouble diagnostics list"})
+kmap.set("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols (Trouble)"})
+kmap.set("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Toggle the buffer diagnostics"})
+kmap.set("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", { desc = "Toggle the quickfix list"})
+kmap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Toggle the items from location list"})
+kmap.set("n", "<leader>xL", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", { desc = "LSP Definitions / references / ... (Trouble"})
+-- kmap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Toggle the lsp preferences"})
 
 -- Nvim Comment
 kmap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle single line comment" })
